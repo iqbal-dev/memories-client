@@ -1,6 +1,6 @@
 import axios from "axios";
 const API = axios.create({
-  baseURL: "https://frozen-anchorage-34963.herokuapp.com",
+  baseURL: "https://secure-atoll-13821.herokuapp.com",
 });
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {

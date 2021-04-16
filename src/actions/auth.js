@@ -16,6 +16,7 @@ export const googleSignIn = (result, token, history) => (dispatch) => {
 
 export const signin = (formData, router) => async (dispatch) => {
   try {
+    debugger;
     const { data } = await api.signIn(formData);
 
     dispatch({ type: AUTH, data });
