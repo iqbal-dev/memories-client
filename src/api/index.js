@@ -1,5 +1,7 @@
 import axios from "axios";
-const API = axios.create({ baseURL: "https://memories-server.zeet.app" });
+const API = axios.create({
+  baseURL: "https://frozen-anchorage-34963.herokuapp.com",
+});
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
     req.headers.Authorization = `Bearer ${
