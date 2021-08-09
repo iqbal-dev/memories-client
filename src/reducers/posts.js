@@ -8,7 +8,7 @@ import {
   UPDATE,
 } from "../constants/actionType";
 
-export default (state = { isLoading: true, posts: [] }, action) => {
+const posts = (state = { isLoading: true, posts: [], post: {} }, action) => {
   switch (action.type) {
     case "START_LOADING":
       return { ...state, isLoading: true };
@@ -50,3 +50,4 @@ export default (state = { isLoading: true, posts: [] }, action) => {
       return state;
   }
 };
+export default posts;
