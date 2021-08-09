@@ -5,9 +5,12 @@ import Post from "./Post/Post";
 import useStyles from "./styles";
 const Posts = ({ setCurrentId }) => {
   const classes = useStyles();
-  const post = useSelector((state) => state.posts);
-  console.log(post);
-  return !post.length ? (
+  const { posts, isLoading } = useSelector((state) => state.posts);
+  if (!isLoading && !posts.length) {
+    return "No Posts";
+  }
+  console.log({ posts });
+  return isLoading ? (
     <CircularProgress />
   ) : (
     <Grid
@@ -16,8 +19,8 @@ const Posts = ({ setCurrentId }) => {
       alignItems="stretch"
       spacing={3}
     >
-      {post.map((post) => (
-        <Grid key={post._id} item xs={12} sm={6}>
+      {posts?.map((post) => (
+        <Grid key={post._id} item xs={12} sm={12} md={6} lg={3}>
           <Post post={post} setCurrentId={setCurrentId} />
         </Grid>
       ))}
